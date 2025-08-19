@@ -1,0 +1,37 @@
+Q: What is a keyword list in Elixir?
+A: A keyword list is a list of two-element tuples where the first element is an atom (the key) and the second is the value. Keys must be atoms, order is preserved, and keys don’t have to be unique.
+Example:
+
+[key1: "value1", key2: "value2"]
+# same as [{:key1, "value1"}, {:key2, "value2"}]
+
+
+Q: What are the use cases of keyword lists?
+A:
+
+Passing options to functions – they act as a flexible argument bag.
+
+IO.inspect("Hello", label: "Output")
+# here [label: "Output"] is a keyword list
+
+
+Configuration files – config.exs uses keyword lists to store settings.
+
+config :my_app, MyRepo,
+  username: "postgres",
+  password: "postgres"
+
+
+Optional parameters in functions – when a function can take many optional arguments, a keyword list makes it readable and flexible.
+
+Q: Give a real example you’ve used in a project
+A: In a project like ZneT, when logging or debugging outputs:
+
+IO.inspect(result, label: "AI Agent Output", limit: 10)
+
+
+Here label and limit are options passed as a keyword list to IO.inspect.
+
+This lets us easily adjust debug output without changing the function signature.
+
+Enum.uniq_by/2 removes duplicates based on a function we provide. Instead of comparing the entire item, it computes a key for uniqueness. For example, in an InVideo AI clone project, if multiple generated videos had the same prompt_id, I could deduplicate them by Enum.uniq_by(videos, & &1.prompt_id) to keep only the first video per prompt."
