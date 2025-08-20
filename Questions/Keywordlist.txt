@@ -35,3 +35,12 @@ Here label and limit are options passed as a keyword list to IO.inspect.
 This lets us easily adjust debug output without changing the function signature.
 
 Enum.uniq_by/2 removes duplicates based on a function we provide. Instead of comparing the entire item, it computes a key for uniqueness. For example, in an InVideo AI clone project, if multiple generated videos had the same prompt_id, I could deduplicate them by Enum.uniq_by(videos, & &1.prompt_id) to keep only the first video per prompt."
+
+Q: What is ExUnit?
+A: Elixir’s built-in unit testing framework. Provides assert, refute, and macros like test/2.
+
+Q: Why test_helper.exs?
+A: It’s run once at the start to set up ExUnit and test environment. Without it, tests won’t run.
+
+Q: Difference between test_helper.exs and *_test.exs?
+A: test_helper.exs is global setup; *_test.exs are individual test suites.
